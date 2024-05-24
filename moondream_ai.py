@@ -22,9 +22,8 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 tokenizer = AutoTokenizer.from_pretrained(model_id, revision=revision)
 
-image = Image.open(r"/content/download (1).jpeg")
+image = Image.open(r"/content/article.png")
 enc_image = model.encode_image(image)
 
-print(model.answer_question(enc_image, "Describe this image", tokenizer))
-
-print(model.answer_question(enc_image, "What is the girl doing", tokenizer))
+# @title Default title text
+print(model.answer_question(enc_image, "Summarize the article", tokenizer))
